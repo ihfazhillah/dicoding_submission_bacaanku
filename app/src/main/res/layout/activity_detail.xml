@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".DetailActivity"
+        android:orientation="vertical"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/img_book"
+                android:scaleType="centerCrop"
+                tools:src="@color/colorAccent"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:textColor="@android:color/black"
+                android:background="#D9FFF3F3"
+                android:orientation="vertical"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
+                android:padding="4dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_title"
+                    tools:text="@string/text_title"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_author"
+                    tools:text="@string/author"
+                    android:drawableLeft="@drawable/ic_baseline_edit_24"
+                    android:drawablePadding="2dp"
+                    android:textSize="12dp"
+                    />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/lorem_ipsum"
+            android:id="@+id/tv_description"
+            android:padding="8dp"
+            />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/cari_penjual"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/cari_penjual_buku_ini"
+            android:padding="8dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="2"
+            />
+
+    </LinearLayout>
+</ScrollView>
