@@ -1,6 +1,8 @@
 package com.ihfazh.bacaanku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -16,8 +18,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    JsonReader reader;
-    ArrayList<Book> books = new ArrayList<>();
+    private JsonReader reader;
+    private ArrayList<Book> books = new ArrayList<>();
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
+        rv = findViewById(R.id.rv_book_list);
+
+        showBookList();
+
+    }
+
+    private void showBookList() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        rv.setLayoutManager(layoutManager);
+        BookListAdapter bookListAdapter = new BookListAdapter(books);
+        rv.setAdapter(bookListAdapter);
 
     }
 }
