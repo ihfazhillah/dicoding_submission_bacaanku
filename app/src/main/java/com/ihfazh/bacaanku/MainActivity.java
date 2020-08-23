@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.ihfazh.bacaanku.data.Book;
@@ -45,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
         BookListAdapter bookListAdapter = new BookListAdapter(books);
+        bookListAdapter.setOnItemClickCallback(
+                new OnItemClickCallback() {
+                    @Override
+                    public void onItemClicked(Book book) {
+                        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                        intent.putExtra(DetailActivity.BOOK_ID, String.valueOf(book.getId()));
+                        startActivity(intent);
+                    }
+                }
+        );
         rv.setAdapter(bookListAdapter);
-
     }
 }
+
