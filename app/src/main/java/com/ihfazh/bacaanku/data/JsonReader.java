@@ -10,12 +10,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class JsonReader implements Reader {
-    private ArrayList<Book> books;
+    private ArrayList<Book> books = new ArrayList<>();
     private Context context;
 
     public JsonReader(Context ctx) throws IOException, JSONException {
@@ -24,9 +26,8 @@ public class JsonReader implements Reader {
     }
 
     private void loadBooks() throws IOException, JSONException {
-        File file = new File(this.context.getFilesDir(), "daftarBuku.json");
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        InputStream inputStream = this.context.getAssets().open("daftarBuku.json");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder stringBuilder = new StringBuilder();
 
         String line = bufferedReader.readLine();
