@@ -58,6 +58,17 @@
 
         </FrameLayout>
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_table_attributes"
+                android:nestedScrollingEnabled="false"
+                />
+
+        </TableLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,12 +77,6 @@
             android:padding="8dp"
             />
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-
-        </TableLayout>
 
         <Button
             android:id="@+id/cari_penjual"

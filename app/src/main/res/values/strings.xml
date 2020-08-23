@@ -4,4 +4,6 @@
     <string name="author">Author</string>
     <string name="text_title">Title</string>
     <string name="cari_penjual_buku_ini">Cari Penjual Buku Ini</string>
+    <string name="attribute_key">Key</string>
+    <string name="attribute_value">Value</string>
 </resources>

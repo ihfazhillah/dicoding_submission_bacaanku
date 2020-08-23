@@ -53,6 +53,7 @@ public class JsonReader implements Reader {
             ArrayList<Attribute> attributesTemp = new ArrayList<>();
 
             while (true){
+
                 Boolean noNextKey = !keys.hasNext();
                 if (noNextKey){
                     break;

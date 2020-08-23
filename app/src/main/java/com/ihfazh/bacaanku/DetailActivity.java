@@ -1,6 +1,8 @@
 package com.ihfazh.bacaanku;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.SearchManager;
 import android.content.Intent;
@@ -24,6 +26,8 @@ public class DetailActivity extends AppCompatActivity {
     private TextView tvTitle, tvAuthor, tvDescription;
     private ImageView img;
     private Button btnSearch;
+    private RecyclerView rvAttributes;
+
     private Book book;
 
     @Override
@@ -36,6 +40,8 @@ public class DetailActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.tv_title);
         tvAuthor = findViewById(R.id.tv_author);
         tvDescription = findViewById(R.id.tv_description);
+
+        rvAttributes = findViewById(R.id.rv_table_attributes);
 
         img = findViewById(R.id.img_book);
 
@@ -56,6 +62,7 @@ public class DetailActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(book.getImageUrl())
                 .into(img);
+
         tvTitle.setText(book.getTitle());
         tvAuthor.setText(book.getAuthor());
         tvDescription.setText(book.getDescription());
@@ -68,6 +75,14 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        rvAttributes.setLayoutManager(new LinearLayoutManager(this));
+        AttributeListAdapter attributeListAdapter = new AttributeListAdapter(book.getAttributeList());
+        rvAttributes.setAdapter(attributeListAdapter);
+
+        if (getSupportActionBar()!= null){
+            getSupportActionBar().setTitle(book.getTitle());
+        }
 
     }
 }
