@@ -55,7 +55,8 @@ public class JsonReader implements Reader {
             ArrayList<Attribute> attributesTemp = new ArrayList<>();
 
             while (true){
-                if (!keys.hasNext()){
+                Boolean noNextKey = !keys.hasNext();
+                if (noNextKey){
                     break;
                 }
 
@@ -65,6 +66,8 @@ public class JsonReader implements Reader {
                 attribute.setValue(attributesObject.getString(key));
                 attributesTemp.add(attribute);
             }
+
+            book.setAttributeList(attributesTemp);
 
             books.add(book);
 
